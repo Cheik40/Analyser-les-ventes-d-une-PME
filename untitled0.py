@@ -12,8 +12,18 @@ import pandas as pd
 import os
 
 # Connexion à la base de données
-#DB_PATH = "/data/database.db"
-DB_PATH = os.path.join(os.path.dirname(__file__), 'data', 'database.db')
+# Chercher d'abord DB_PATH dans les variables d'environnement
+DB_PATH = os.getenv("DB_PATH")
+
+# Si DB_PATH n'est pas défini, utiliser le chemin relatif par défaut
+if not DB_PATH:
+    DB_PATH = os.path.join(os.path.dirname(__file__), 'data' , 'bd' , 'database.db')
+    # Vérifier si le dossier 'data' existe, sinon le créer
+    os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
+
+print(f"📂 Base de données utilisée : {DB_PATH}")
+
+
 conn = sqlite3.connect(DB_PATH)
 cursor = conn.cursor()
 

@@ -49,4 +49,4 @@ services:
       - ./data:/app/data  # Monter le répertoire ./data local vers /app/data dans le conteneur
       - ./untitled0.py:/app/untitled0.py  # Monter ton script Python pour l'exécution
     environment:
-      - DB_PATH=/app/data/database.db  # Utiliser le chemin relatif à la base de données dans le conteneur
+      - DB_PATH=/app/data/db/database.db  # Utiliser le chemin relatif à la base de données dans le conteneur

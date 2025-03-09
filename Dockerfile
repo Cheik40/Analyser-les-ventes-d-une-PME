@@ -11,13 +11,13 @@ COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Créer le répertoire de la base de données dans le conteneur
-RUN mkdir -p /app/data
+RUN mkdir -p /app/data/db
 
 # Copier le fichier Python dans le conteneur
-COPY untitled0.py /app/untitled0.py
+COPY untitled0.py /app/
 
 # Exposer le port sur lequel ton application écoutera (si nécessaire)
 # EXPOSE 5000
 
 # Définir la commande d'exécution du conteneur
-CMD ["python", "/app/untitled0.py"]
+CMD ["python", "untitled0.py"]

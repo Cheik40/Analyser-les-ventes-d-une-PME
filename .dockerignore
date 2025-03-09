@@ -1,0 +1,13 @@
+# Ignorer les fichiers système et de config
+.git
+.gitignore
+.dockerignore
+
+# Ignorer les fichiers Python inutiles
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignorer les fichiers d'environnement
+.env
+.vscode/
