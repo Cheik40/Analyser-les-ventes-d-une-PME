@@ -1,0 +1,16 @@
+# Fichiers Docker
+*.log
+Dockerfile*
+docker-compose.yml
+
+# Volumes et fichiers générés par Docker
+data/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Anaconda
+env/
+*.conda
