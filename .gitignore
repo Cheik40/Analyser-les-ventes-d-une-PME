@@ -1,10 +1,10 @@
 # Fichiers Docker
 *.log
-Dockerfile*
-docker-compose.yml
+# Dockerfile*
+# docker-compose.yml
 
 # Volumes et fichiers générés par Docker
-data/
+# data/
 
 # Python
 __pycache__/
