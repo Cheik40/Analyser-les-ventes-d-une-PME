@@ -17,7 +17,7 @@ DB_PATH = os.getenv("DB_PATH")
 
 # Si DB_PATH n'est pas défini, utiliser le chemin relatif par défaut
 if not DB_PATH:
-    DB_PATH = os.path.join(os.path.dirname(__file__), 'data' , 'bd' , 'database.db')
+    DB_PATH = os.path.join(os.path.dirname(__file__), 'data' , 'db' , 'database.db')
     # Vérifier si le dossier 'data' existe, sinon le créer
     os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
 
@@ -77,6 +77,8 @@ def import_csv(file_path, table_name):
         return
 
     df = pd.read_csv(file_path)
+    # Aperçu des données
+    print(f"{df.head()}")
 
     # Vérifier et renommer les colonnes si nécessaire
     if table_name == "magasins":
@@ -113,6 +115,7 @@ def import_ventes(file_path):
         return
 
     df_ventes = pd.read_csv(file_path)
+    print(f"{df_ventes.head()}")
     ventes_importees = 0
     ventes_ignorees = 0
 
