@@ -1,36 +1,4 @@
 # version: '3.8'
-# services:
-#   database_service:
-#     image: nouchka/sqlite3
-#     container_name: sqlite_db
-#     volumes:
-#       - ./data:/data  # Monte le dossier local data/ dans le conteneur
-
-#   script_runner:
-#     build: .
-#     container_name: script_runner
-#     depends_on:
-#       - database_service
-#     volumes:
-#       - ./data:/data  # Assure que le script a accès à la base SQLite
-#     command: ["python", "untitled0.py"]  # Exécuter ton script Python
-# version: '3.8'
-# services:
-#   database_service:
-#     image: nouchka/sqlite3
-#     container_name: sqlite_db
-#     volumes:
-#       - ./data:/data  # Assurez-vous que le chemin est correct et que le dossier ./data existe
-
-#   script_runner:
-#     build: .
-#     container_name: script_runner
-#     depends_on:
-#       - database_service
-#     volumes:
-#       - ./data:/data  # Monter le même dossier ./data dans le conteneur
-#       - ./untitled0.py:/app/untitled0.py
-
 services:
   # Service de base de données SQLite
   database_service:
@@ -47,6 +15,6 @@ services:
       - database_service  # Le service script_runner dépend du service database_service
     volumes:
       - ./data:/app/data  # Monter le répertoire ./data local vers /app/data dans le conteneur
-      - ./untitled0.py:/app/untitled0.py  # Monter ton script Python pour l'exécution
+      - ./main.py:/app/main.py  # Monter ton script Python pour l'exécution
     environment:
       - DB_PATH=/app/data/db/database.db  # Utiliser le chemin relatif à la base de données dans le conteneur
